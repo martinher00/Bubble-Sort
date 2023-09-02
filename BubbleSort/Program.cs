@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            int[] arr = {2, 94, 43, 7, 1, 25, 42};
+            Console.WriteLine("How many array elements do you want?");
+            int elements = Int32.Parse(Console.ReadLine());
+            Console.Clear();
+
+            int[] arr = CreateArray(elements);
+
             int temp;
             int iterations = 0;
 
@@ -32,6 +37,21 @@
             }
 
             Console.WriteLine("Number of iterations:\n" + iterations);
+        }
+
+        static int[] CreateArray(int arrayLength)
+        {
+            Random rnd = new Random();
+            int[] arr = new int[arrayLength];
+            int num;
+
+            for (int i = 0; i < arrayLength; i++)
+            {
+                num = rnd.Next(1, 1000);
+                arr[i] = num;
+            }
+
+            return arr;
         }
     }
 }
